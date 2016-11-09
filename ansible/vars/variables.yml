@@ -36,5 +36,5 @@ magento:
     admin_firstname: John
     admin_lastname: Doe
     admin_email: john.doe@example.com
-    public_key: 676ff823c1c8afae9074bc461f89b9ad
-    private_key: c1a131053d8a239ece59507ac0ae64fa
+    public_key: 
+    private_key: 
