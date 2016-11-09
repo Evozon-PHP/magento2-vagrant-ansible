@@ -1,0 +1,26 @@
+---
+- name: Add ppa Repository
+  become: yes
+  become_method: sudo
+  apt_repository: repo=ppa:nginx/stable
+
+- name: Install Nginx
+  become: yes
+  become_method: sudo
+  apt: pkg=nginx state=latest
+
+- name: Create Virtual Host Magento Config File
+  become: yes
+  become_method: sudo
+  template: src=default.tpl dest=/etc/nginx/sites-available/magento2.conf
+  notify: restart nginx
+
+- name: Enable Magento Virtual Host File
+  become: yes
+  become_method: sudo
+  file:
+    src: /etc/nginx/sites-available/magento2.conf
+    dest: /etc/nginx/sites-enabled/magento2.conf
+    state: link
+- name: Create Project Directory
+  file: path=/var/www/magento2 state=directory

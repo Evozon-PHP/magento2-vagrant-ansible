@@ -1,0 +1,38 @@
+---
+- name: Update apt
+  become: yes
+  become_method: sudo
+  apt: update_cache=yes
+
+- name: Install System Packages
+  become: yes
+  become_method: sudo
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - curl
+    - wget
+    - python-software-properties
+
+- name: Install Extra Packages
+  become: yes
+  become_method: sudo
+  apt: pkg={{ item }} state=latest
+  with_items: 
+    - vim
+    - git
+    - htop
+
+- name: Configure the timezone
+  become: yes
+  become_method: sudo
+  template: src=timezone.tpl dest=/etc/timezone
+
+- name: More Configure the timezone
+  become: yes
+  become_method: sudo
+  file: src=/usr/share/zoneinfo/{{server.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+
+- name: Set default system language pack
+  become: yes
+  become_method: sudo
+  shell: locale-gen {{server.locale}}

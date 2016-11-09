@@ -1,0 +1,43 @@
+---
+- name: Add ppa Repository
+  become: yes
+  become_method: sudo
+  apt_repository: repo=ppa:ondrej/{{ php.ppa }}
+
+- name: Update apt
+  become: yes
+  become_method: sudo
+  apt: update_cache=yes
+
+- name: Install php{{ php.version }}
+  become: yes
+  become_method: sudo
+  apt: pkg=php{{ php.version }} state=latest
+
+- name: Install php{{ php.version }}-fpm
+  become: yes
+  become_method: sudo
+  apt: pkg=php{{ php.version }}-fpm state=latest
+
+- name: Install PHP Packages
+  become: yes
+  become_method: sudo
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - php{{ php.version }}-cli
+    - php{{ php.version }}-intl
+    - php{{ php.version }}-mcrypt
+    - php{{ php.version }}-curl
+    - php-pear
+    - php{{ php.version }}-fpm
+    - php{{ php.version }}-mbstring
+    - php{{ php.version }}-mysql
+    - php-xdebug
+    - php{{ php.version }}-xsl
+    - php{{ php.version }}-imagick
+    - php{{ php.version }}-gd
+    - php{{ php.version }}-opcache
+    - php{{ php.version }}-zip
+  notify: restart php-fpm
+
+- include: configure.yml

@@ -1,0 +1,40 @@
+---
+server:
+    install: '1'
+    timezone: UTC
+    locale: en_US.UTF-8
+vagrant_local:
+    install: '1'
+    # vm: { base_box: trusty64, hostname: magento2.local, ip: 192.168.33.99, memory: '4000', sharedfolder: ./../../magento2, useVagrantCloud: '1', syncType: nfs }
+nginx:
+    install: '1'
+    docroot: ./../../magento2
+    servername: magento2.local
+mysql:
+    install: '1'
+    root_password: 'magento'
+    database: magento
+    user: magento
+    password: magento
+    dump: ''
+php:
+    install: '1'
+    ppa: php
+    version: 7.0
+xdebug:
+    install: '1'
+composer:
+    install: '1'
+magento:
+    install: '1'
+    install_sample: '1'
+    db_name: magento
+    db_password: magento
+    db_user: magento
+    admin_user: admin
+    admin_password: admin123admin
+    admin_firstname: John
+    admin_lastname: Doe
+    admin_email: john.doe@example.com
+    public_key: 676ff823c1c8afae9074bc461f89b9ad
+    private_key: c1a131053d8a239ece59507ac0ae64fa

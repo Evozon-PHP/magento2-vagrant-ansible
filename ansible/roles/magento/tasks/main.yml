@@ -1,0 +1,53 @@
+- name: Install magento
+  become: yes
+  become_method: sudo
+  shell: composer create-project --repository-url=https://{{ magento.public_key }}:{{ magento.private_key }}@repo.magento.com/ magento/project-community-edition ./
+  args:
+    chdir: /var/www/magento2
+  register: magento_install
+
+- name: Add User to www-data group
+  become: yes
+  become_method: sudo
+  shell: usermod -g www-data vagrant
+  when: magento_install|success
+
+- name: Give permissions to magento 2
+  become: yes
+  become_method: sudo
+  shell: find . -type f -exec chmod 644 {} \; find . -type d -exec chmod 755 {} \; find ./var -type d -exec chmod 777 {} \; find ./pub/media -type d -exec chmod 777 {} \; find ./pub/static -type d -exec chmod 777 {} \; chmod 777 ./app/etc; chmod 644 ./app/etc/*.xml; chmod u+x bin/magento
+  args:
+    chdir: /var/www/magento2
+  when: magento_install|success
+
+- name: Run magento setup
+  become: yes
+  become_method: sudo
+  shell: php bin/magento setup:install \ --backend-frontname=admin \ --use-rewrites=1 \ --db-password={{ magento.db_password }}  \ --db-name={{ magento.db_name }}  \ --db-user={{ magento.db_user }}  \ --admin-user={{ magento.admin_user }}  \ --admin-password={{ magento.admin_password }}  \ --admin-firstname={{ magento.admin_firstname }}  \ --admin-lastname={{ magento.admin_lastname }}  \ --admin-email={{ magento.admin_email }}
+  args:
+    chdir: /var/www/magento2
+  when: magento_install|success
+
+- name: Install sample data
+  become: yes
+  become_method: sudo
+  shell: php bin/magento sampledata:deploy
+  args:
+    chdir: /var/www/magento2
+  #  when: magento_install|success
+
+- name: Run magento upgrade
+  become: yes
+  become_method: sudo
+  shell: php bin/magento setup:upgrade
+  args:
+    chdir: /var/www/magento2
+  when: magento_install|success
+
+- name: Reindex Magento
+  become: yes
+  become_method: sudo
+  shell: php bin/magento indexer:reindex
+  args:
+    chdir: /var/www/magento2
+  when: magento_install|success

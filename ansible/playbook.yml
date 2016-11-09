@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars/variables.yml
+  roles:
+    - server
+    - nginx
+    - mysql
+    - php
+    - composer
+    - magento
+    - xdebug
