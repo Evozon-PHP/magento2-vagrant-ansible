@@ -43,8 +43,6 @@ Software listed below should be available in [PATH](https://en.wikipedia.org/wik
 
 ### Installation steps
 
-:information_source: In case of any issues during installation, please read [FAQ section](#faq)
-
  1. Open terminal and navigate into the directory to the one which you want to contain Magento project.
 
  1. Clone (download) project with Vagrant configuration:
