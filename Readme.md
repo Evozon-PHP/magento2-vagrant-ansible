@@ -104,5 +104,5 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 
 ### Codebase and DB access
 - MySQL DB host: `localhost` (not accessible remotely)
-- MySQL DB name: `magento`, `magento`
+- MySQL DB name: `magento`
 - MySQL DB user/password: `magento:magento`.
