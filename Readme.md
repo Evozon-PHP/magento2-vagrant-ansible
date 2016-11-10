@@ -89,7 +89,7 @@ Software listed below should be available in [PATH](https://en.wikipedia.org/wik
  1. Point a host name to VM Private Network IP in /etc/hosts:
 
 	```bash
-    sudo echo '192.168.56.10 magento2.local' >> /etc/hosts
+    sudo echo '192.168.33.99 magento2.local' >> /etc/hosts
 	```
 
 ## Default credentials and settings
