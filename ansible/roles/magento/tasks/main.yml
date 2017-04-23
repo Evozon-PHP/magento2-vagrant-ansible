@@ -1,3 +1,8 @@
+- name: clear directory before magento install
+  become: yes
+  become_method: sudo
+  shell: rm -rf /var/www/magento2/*
+
 - name: Install magento
   become: yes
   become_method: sudo
