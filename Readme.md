@@ -7,7 +7,7 @@
  * [Default credentials and settings](#default-credentials-and-settings)
    * [Web access](#web-access)
    * [Codebase and DB access](#codebase-and-db-access)
-   * [RabbitMq Settings](#rabbitmq-setting)
+   * [RabbitMq Settings](#rabbitmq-settings)
 
 ## What You get
 
