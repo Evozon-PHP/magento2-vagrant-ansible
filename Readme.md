@@ -10,6 +10,7 @@
    * [RabbitMq Settings](#rabbitmq-settings)
    * [Memcache Settings](#memcache-settings)
    * [Redis Settings](#redis-settings)
+   * [Varnish Settings](#varnish-settings)
 
 ## What You get
 
@@ -117,3 +118,7 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 
 ### Redis Settings
 - Add your custom values in `roles/redis/defaults/main.yml`
+
+### Varnish Settings
+- Add your custom values in `roles/varnish/defaults/main.yml`
+- Specify the config path in `roles/varnish/vars/{linux-dist}.yml`
