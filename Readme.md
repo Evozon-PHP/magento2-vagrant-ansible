@@ -9,6 +9,7 @@
    * [Codebase and DB access](#codebase-and-db-access)
    * [RabbitMq Settings](#rabbitmq-settings)
    * [Memcache Settings](#memcache-settings)
+   * [Redis Settings](#redis-settings)
 
 ## What You get
 
@@ -113,3 +114,6 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 
 ### Memcache Settings
 - The user is set in path `roles/memcache/vars/{linux-dist}.yml`
+
+### Redis Settings
+- Add your custom values in `roles/redis/defaults/main.yml`
