@@ -12,4 +12,6 @@
     - composer
     - magento
     - xdebug
+    - memcache
+    - rabbitmq
     - redis
