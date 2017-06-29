@@ -5,10 +5,11 @@
   vars_files:
     - vars/variables.yml
   roles:
-    - server
-    - nginx
-    - mysql
-    - php
-    - composer
-    - magento
-    - xdebug
+#    - server
+#    - nginx
+#    - mysql
+#    - php
+#    - composer
+#    - magento
+#    - xdebug
+    - varnish
