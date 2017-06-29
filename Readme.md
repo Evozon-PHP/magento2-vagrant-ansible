@@ -7,6 +7,10 @@
  * [Default credentials and settings](#default-credentials-and-settings)
    * [Web access](#web-access)
    * [Codebase and DB access](#codebase-and-db-access)
+   * [RabbitMq Settings](#rabbitmq-settings)
+   * [Memcache Settings](#memcache-settings)
+   * [Redis Settings](#redis-settings)
+   * [Varnish Settings](#varnish-settings)
 
 ## What You get
 
@@ -104,3 +108,17 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 - MySQL DB host: `localhost` (not accessible remotely)
 - MySQL DB name: `magento`
 - MySQL DB user/password: `magento:magento`.
+
+### RabbitMq Settings
+- Back-office port: `:15672`
+- Back-office user and password: `variables.yml`
+
+### Memcache Settings
+- The user is set in path `roles/memcache/vars/{linux-dist}.yml`
+
+### Redis Settings
+- Add your custom values in `roles/redis/defaults/main.yml`
+
+### Varnish Settings
+- Add your custom values in `roles/varnish/defaults/main.yml`
+- Specify the config path in `roles/varnish/vars/{linux-dist}.yml`

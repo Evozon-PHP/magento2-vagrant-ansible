@@ -36,5 +36,8 @@ magento:
     admin_firstname: John
     admin_lastname: Doe
     admin_email: john.doe@example.com
-    public_key: 
-    private_key: 
+    public_key:
+    private_key:
+rabbitmq:
+    user: admin
+    password: admin123
