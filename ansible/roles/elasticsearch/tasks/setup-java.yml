@@ -1,0 +1,12 @@
+---
+- name: Update APT package cache
+  action: apt update_cache=yes
+
+- name: Install Jdk
+  shell: apt-get install default-jre -y warn=no
+
+- name: Set JAVA_HOME
+  shell: echo JAVA_HOME is $JAVA_HOME
+  environment:
+    JAVA_HOME: /usr/java/1.7.0_131
+  register: shellout
