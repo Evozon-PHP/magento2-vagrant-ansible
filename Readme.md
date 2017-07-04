@@ -11,6 +11,7 @@
    * [Memcache Settings](#memcache-settings)
    * [Redis Settings](#redis-settings)
    * [Varnish Settings](#varnish-settings)
+   * [Elasticsearch Settings](#elasticsearch-settings)
 
 ## What You get
 
@@ -123,3 +124,6 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 - Nginx and Varnish are bot set to run on port `80`, to disable on of them, just uncomment the role from `playbook.yml`
 - Add your custom values in `roles/varnish/defaults/main.yml`
 - Specify the config path in `roles/varnish/vars/{linux-dist}.yml`
+
+### Elasticsearch Settings
+- Add your custom values in `roles/elasticsearch/defaults/main.yml`
