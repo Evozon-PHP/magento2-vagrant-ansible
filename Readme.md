@@ -120,5 +120,6 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 - Add your custom values in `roles/redis/defaults/main.yml`
 
 ### Varnish Settings
+- Nginx and Varnish are bot set to run on port `80`, to disable on of them, just uncomment the role from `playbook.yml`
 - Add your custom values in `roles/varnish/defaults/main.yml`
 - Specify the config path in `roles/varnish/vars/{linux-dist}.yml`
