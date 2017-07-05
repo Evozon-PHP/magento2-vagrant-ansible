@@ -5,7 +5,7 @@
 
 - name: Install magento
   become: yes
-  become_method: sudo
+  become_user: www-data
   shell: composer create-project --repository-url=https://{{ magento.public_key }}:{{ magento.private_key }}@repo.magento.com/ magento/project-community-edition ./
   args:
     chdir: /var/www/magento2
@@ -28,7 +28,7 @@
 - name: Run magento setup
   become: yes
   become_method: sudo
-  shell: php bin/magento setup:install \ --backend-frontname=admin \ --use-rewrites=1 \ --db-password={{ magento.db_password }}  \ --db-name={{ magento.db_name }}  \ --db-user={{ magento.db_user }}  \ --admin-user={{ magento.admin_user }}  \ --admin-password={{ magento.admin_password }}  \ --admin-firstname={{ magento.admin_firstname }}  \ --admin-lastname={{ magento.admin_lastname }}  \ --admin-email={{ magento.admin_email }}
+  shell: php bin/magento setup:install \ --backend-frontname=admin \ --use-rewrites=1 \ --db-password={{ magento.db_password }}  \ --db-name={{ magento.db_name }}  \ --db-user={{ magento.db_user }}  \ --admin-user={{ magento.admin_user }}  \ --admin-password={{ magento.admin_password }}  \ --admin-firstname={{ magento.admin_firstname }}  \ --admin-lastname={{ magento.admin_lastname }}  \ --admin-email={{ magento.admin_email }} \ --base-url=http://{{ nginx.servername }}
   args:
     chdir: /var/www/magento2
   when: magento_install|success
