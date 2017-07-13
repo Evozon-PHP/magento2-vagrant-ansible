@@ -12,6 +12,7 @@
    * [Redis Settings](#redis-settings)
    * [Varnish Settings](#varnish-settings)
    * [Elasticsearch Settings](#elasticsearch-settings)
+   * [Blackfire Settings](#blackfire-settings)
 
 ## What You get
 
@@ -127,3 +128,7 @@ Upon a successful installation, you'll see the location and URL of the newly-ins
 
 ### Elasticsearch Settings
 - Add your custom values in `roles/elasticsearch/defaults/main.yml`
+
+### Blackfire Settings
+- Blackfire depends on the PHP role, so install php before
+- After the install is complete, `vagrant ssh` to your server and run the command `blackfire-agent -register` to register your server id and token

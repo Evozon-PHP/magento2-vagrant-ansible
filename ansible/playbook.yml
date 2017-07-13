@@ -16,3 +16,5 @@
     - rabbitmq
     - redis
     - varnish
+    - elasticsearch
+    - blackfire
